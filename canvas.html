@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	#gameCanvas {
+		margin: 0 auto;
+		display: block;
+	}
+	</style>
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+	<div class="nav-wrap">
+		<nav class="main-nav wrapper">
+
+			<a href="canvas.html" class="logo">Canvas</a>
+			<a href="index.html">Main Page</a>
+			<a href="fabricjs.html">FabricJS</a>
+			<a href="easeljs.html">EaselJS</a>
+			<a href="" class="login">Login</a>
+		</nav>
+	</div>
+
+	<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+	<script type="text/javascript">
+	var canvas;
+	var canvasContext;
+
+	function loadCanvas(dataURL) {
+        // load image from data url
+        var imageObj = new Image();
+        imageObj.onload = function() {
+        	canvasContext.drawImage(this, 0, 0);
+        	canvasContext.fillStyle = "white";
+        	canvasContext.fillRect(25,25,100,100);
+        	canvasContext.addHitRegion({id: 'circle'});
+        };
+
+        imageObj.src = dataURL;
+    }
+
+
+
+
+    window.onload = function(){
+    	console.log("Ahoj!");
+    	canvas = document.getElementById("gameCanvas");
+    	canvasContext = canvas.getContext("2d");
+    	canvasContext.fillStyle = "black";
+    	canvasContext.fillRect(0,0,canvas.width,canvas.height);
+
+
+    	loadCanvas('img/Hoth.png');
+
+
+    }
+
+    </script>
+</body>
+</html>

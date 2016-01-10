@@ -1,0 +1,55 @@
+
+<html>
+<head>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+  <script>      
+  function init() {
+    var stage = new createjs.Stage("demoCanvas");
+    var circle = new createjs.Shape();
+    circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+    circle.x = 100;
+    circle.y = 100;
+    
+    var imgHoth = new createjs.Bitmap("img/Hoth.png");
+    stage.addChild(imgHoth);
+    stage.addChild(circle);
+    stage.update();
+
+    var imgAT = new createjs.Bitmap("img/AT-AT.png");
+    var imgShGen = new createjs.Bitmap("img/ShieldGenerator.png");
+
+    circle.addEventListener("click", function(event) { 
+      stage.addChild(imgAT);
+      stage.update();
+     })
+    imgHoth.addEventListener("click", function(event) {
+      stage.addChild(imgShGen);
+      stage.update();
+      ; })
+
+    function tick() { 
+      imgAT.x = imgAT.x -3;
+      stage.update();
+      console.log("TICK!!!"); }
+    createjs.Ticker.addEventListener("tick", tick);
+    createjs.Ticker.setInterval(25);
+  }
+  </script>
+</head>
+<body onload="init();">
+  <div class="nav-wrap">
+    <nav class="main-nav wrapper">
+
+      <a href="easeljs.html" class="logo">EaselJS</a>
+      <a href="index.html">Main Page</a>
+      <a href="canvas.html">Canvas</a>
+      <a href="fabricjs.html">FabricJS</a>
+      <a href="" class="login">Login</a>
+    </nav>
+  </div>
+  <canvas id="demoCanvas" width="800" height="600"></canvas>
+</body>
+</html>
+

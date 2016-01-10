@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="main-nav wrapper">
+
+      <a href="fabricjs.html" class="logo">FabricJS</a>
+      <a href="index.html">Main Page</a>
+      <a href="canvas.html">Canvas</a>
+      <a href="easeljs.html">EaselJS</a>
+      <a href="" class="login">Login</a>
+    </nav>
+  </div>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <img src="img/Hoth.png" id="my-image">
+  <script src="fabric.js-1.5.0/dist/fabric.min.js"></script>
+  <script>
+  var canvas = new fabric.Canvas('canvas');
+  var imgElement = document.getElementById('my-image');
+  var img = new fabric.Image(imgElement, {
+    left: 0,
+    top: 0,
+    angle: 0,
+    opacity: 1
+  });
+  var rect = new fabric.Rect({
+    top : 100,
+    left : 100,
+    width : 60,
+    height : 70,
+    fill : 'red'
+  });
+  canvas.add(img);
+  canvas.add(rect);
+  </script>
+</body>
+</html>
